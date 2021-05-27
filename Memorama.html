@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Memorama</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+			var valorsi,imagen;
+			$("button").click(function(){
+			//asignar una imagen a cada uno aleatoriamente
+			var num=Math.random()*(6-1)+1;
+			var ent=Math.round(num);
+			if(ent!=valorsi){
+				valorsi=ent;
+				//window.alert(ent);
+				imagen='img/'+ent+'.png';
+				$('#pantalla').val(imagen);
+			} 
+			
+			 });
+			//evento de hacer click
+			//despues comparar si son correctas
+
+			
+		});
+	</script>
+	
+</head>
+<body>
+	<div id="pantalla" style="margin-left: 10%;">Limite de tiempo:</div>
+	<div style="margin-left: 30%; margin-top: 2%;">	
+		
+		<button><img id="imagen1" src="img/misterio.png" alt="Interrogacion"></button>
+		<button><img id="imagen2" src="img/misterio.png" alt="Interrogacion"></button>
+		<button><img id="imagen3" src="img/misterio.png" alt="Interrogacion"></button>
+		<button><img id="imagen4" src="img/misterio.png" alt="Interrogacion"></button>
+		<br>
+		<button><img id="imagen5" src="img/misterio.png" alt="Interrogacion"></button>
+		<button><img id="imagen6" src="img/misterio.png" alt="Interrogacion"></button>
+		<button><img id="imagen7" src="img/misterio.png" alt="Interrogacion"></button>
+		<button><img id="imagen8" src="img/misterio.png" alt="Interrogacion"></button>
+		<br>
+		<button><img id="imagen9" src="img/misterio.png" alt="Interrogacion"></button>
+		<button><img id="imagen10" src="img/misterio.png" alt="Interrogacion"></button>
+		<button><img id="imagen11" src="img/misterio.png" alt="Interrogacion"></button>
+		<button><img id="imagen12" src="img/misterio.png" alt="Interrogacion"></button>
+	</div>
+</body>
+</html>
