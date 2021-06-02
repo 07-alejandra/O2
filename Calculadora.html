@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#borrar').click(function(){
+                $('#pantalla').val("");
+            })
+           crearcadena('n0',0);
+           crearcadena('n1',1);
+           crearcadena('n2',2);
+           crearcadena('n3',3);
+           crearcadena('n4',4);
+           crearcadena('n5',5);
+           crearcadena('n6',6);
+           crearcadena('n7',7);
+           crearcadena('n8',8);
+           crearcadena('n9',9); 
+           crearoperacion('raiz','√');
+           crearoperacion('potencia','^');
+           
+        });
+    </script>
+    <script type="text/javascript">
+        function crearcadena(control, valor){
+            $('#'+control).click(function(){
+                var valoractual= $('#pantalla').val();
+                cadena=valoractual+valor;
+                $('#pantalla').val(cadena);
+            });
+        }   
+        function crearoperacion(control, operacion){
+            $('#'+control).click(function(){
+                valoractual=$('#pantalla').val();
+                $('#cantidad').text(operacion+" "+valoractual);
+                $('#pantalla').val("");
+            });
+        } 
+        function calculototal(){
+            valoractual=$('#pantalla').val();
+            cantidadguardada=$('#cantidad').text();
+            tipo=cantidadguardada.split(" ");
+           
+            switch(tipo[0]){
+                case '^':   
+                    valorint=parseInt(valoractual);
+                    valorsig=parseInt(tipo[1]);
+                    resultado=Math.pow(valorsig,valorint);
+                    $('#pantalla').val(resultado);
+                break;
+                case '√':   
+                    valorint=parseInt(valoractual);
+                    valorsig=parseInt(tipo[1]);
+                    nraiz=1/valorint;
+                    resultado=Math.pow(valorsig,nraiz);
+                    $('#pantalla').val(resultado);
+                break;
+            }
+        }   
+    
+    </script>
+    
+</head>
+<body>
+    <table>
+        <tr>
+            <div id="cantidad" style="text-align: center;display: none;"> </div>
+            <input type="text" id="pantalla" style="margin:auto;">
+            <td><button id="borrar">C</button></td>
+        </tr>
+        <tr>
+            <br><br>
+            <td><button id="n1">1</button></td>
+            <td><button id="n2">2</button></td>
+            <td><button id="n3">3</button></td>
+        </tr>
+        <tr>
+            <td><button id="n4">4</button></td>
+            <td><button id="n5">5</button></td>
+            <td><button id="n6">6</button></td>
+        </tr>
+        <tr>
+            <td><button id="n7">7</button></td>
+            <td><button id="n8">8</button></td>
+            <td><button id="n9">9</button></td>
+        </tr>
+        <tr>
+            <td><button id="n0">0</button></td>
+            <td><button id="raiz">√ </button></td>
+            <td><button id="potencia">^</button></td>
+            <td><button id="resultado" onclick="calculototal()">= </button></td>
+        </tr>
+       
+            
+            
+       
+    </table>
+     
+        
+           
+    
+</body>
+</html>

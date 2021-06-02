@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //$("#p1").css("color","red").slideUp(2000);
+            $("#text").click(function(){
+                alert("Texto: "+$("#p1").text());
+                $("#text1").text("Hello Word!");
+            });
+            $("#html").click(function(){
+             alert("Html: "+$("#p1").html());
+             $("#text2").html("<b>Hello Word!</b>");
+            });
+            $("#val").click(function(){
+                alert($("#inputTxt").val());
+                $("#text3").val("Dolly Duck");
+            });
+            $("#attr").click(function(){
+                alert($("#inputTxt").attr("type"))
+            });
+        });
+        
+    </script>
+</head>
+<body>
+    <p id="p1">Hola <b>Mundo</b>!</p>
+    <input type="text" id="inputTxt">
+    <br><br>
+    <button id="text">TEXT</button>
+    <button id="html">HTML</button>
+    <button id="val">VALUE</button>
+    <button id="attr">ATRIBUTOS</button>
+
+    <p id="text1"></p>
+    <p id="text2"></p>
+    <input type="text" id="text3">
+</body>
+</html>
